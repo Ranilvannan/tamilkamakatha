@@ -120,7 +120,11 @@ def sitemap_page():
     # Dynamic routes - Blog
     blog = app.config.get("MONGO_BLOG_TABLE")
     blog_col = data_collect(blog)
-    data_dict = {"blog_code": app.config['BLOG_CODE']}
+    data_dict = {"blog_code": app.config['BLOG_CODE'],
+                 "date": {
+                     "$gte": START_DATE,
+                     "$lt": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                 }}
     articles = blog_col.find(data_dict)
 
     for article in articles:
