@@ -114,9 +114,8 @@ def sitemap_page():
     host_base = host_components.scheme + "://" + host_components.netloc
     dynamic_urls = list()
 
-    home_page = {"loc": host_base,
-                 "lastmod": datetime.now().strftime("%Y-%m-%d")}
-    dynamic_urls.append(home_page)
+    dynamic_urls.append({"loc": host_base,
+                         "lastmod": datetime.now().strftime("%Y-%m-%d")})
 
     # Dynamic routes - Blog
     blog = app.config.get("MONGO_BLOG_TABLE")
@@ -132,13 +131,9 @@ def sitemap_page():
         dynamic_urls.append(url)
 
     # Dynamic routes - Category
-    category = app.config.get("MONGO_CATEGORY_TABLE")
-    category_col = data_collect(category)
-    categories = category_col.find()
-
-    for rec in categories:
+    for rec in category_data:
         url = {
-            "loc": f"{host_base}/category/{rec['url']}",
+            "loc": f"{host_base}/category/{rec}",
             "lastmod": datetime.now().strftime("%Y-%m-%d")
         }
         dynamic_urls.append(url)
