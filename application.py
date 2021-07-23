@@ -173,18 +173,6 @@ def blog_update():
     bi.trigger_import()
 
 
-@app.cli.command('category_update')
-def category_update():
-    path = app.config.get("IMPORT_PATH")
-    category = app.config.get("MONGO_CATEGORY_TABLE")
-    col = data_collect(category)
-    params = "category_id"
-    file_suffix = "_category.json"
-
-    bi = BlogInsert(path, col, params, file_suffix)
-    bi.trigger_import()
-
-
 @app.cli.command('gallery_update')
 def gallery_update():
     path = app.config.get("IMPORT_PATH")
