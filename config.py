@@ -10,12 +10,9 @@ class ProductionConfig(Config):
     IMPORT_PATH = "/var/story_book"
     CUSTOM_IMAGES_PATH = "/var/story_book/images"
 
-    MONGO_CATEGORY_TABLE = "category"
-    MONGO_GALLERY_TABLE = "gallery"
-
     BLOG_CODE = "Tamil"
     MONGO_BLOG_TABLE = "tamil_blog"
-    TEMPLATE_FOLDER_PATH = "template"
+    MONGO_GALLERY_TABLE = "gallery"
 
 
 class DevelopmentConfig(Config):
