@@ -63,13 +63,12 @@ def home_page():
 @app.route('/category/<category_url>/')
 @app.route('/category/<category_url>')
 def category_page(category_url):
-    category_table = app.config.get("MONGO_CATEGORY_TABLE")
-    category_col = data_collect(category_table)
-    category = category_col.find_one({"url": category_url})
+    category_val = category_data.has_key(category_url)
 
-    if not category:
+    if not category_val:
         return abort(404)
 
+    category = category_data[category_url]
     blog = app.config.get("MONGO_BLOG_TABLE")
     blog_col = data_collect(blog)
     page = request.args.get("page", type=int, default=1)

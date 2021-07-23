@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<title>{% block title %}{% endblock %}</title>
+	<meta name="description" content="{% block description %}{% endblock %}">
+	<meta name="yandex-verification" content="943b03fe19e31b1f" />
+	<link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}"/>
+	<link rel='canonical' href="{{ request.url }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='font/font.css') }}">
+	<meta charset="utf-8">
+<!--	&lt;!&ndash; Global site tag (gtag.js) - Google Analytics &ndash;&gt;-->
+<!--	<script async src="https://www.googletagmanager.com/gtag/js?id=G-MSVN84ZY8H"></script>-->
+<!--	<script>-->
+<!--	  window.dataLayer = window.dataLayer || [];-->
+<!--	  function gtag(){dataLayer.push(arguments);}-->
+<!--	  gtag('js', new Date());-->
+
+<!--	  gtag('config', 'G-MSVN84ZY8H');-->
+<!--	</script>-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+	<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-sm bg-success navbar-dark">
+			<a class="navbar-brand" href="{{ url_for('home_page')}}">Tamilkamakatha</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="collapsibleNavbar">
+				<ul class="navbar-nav">
+					<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					  Category
+					</a>
+					<div class="dropdown-menu bg-success border-0" aria-labelledby="navbarDropdownMenuLink">
+						<a class="nav-link" href="{{ url_for('category_page', category_url='aunty_sex') }}">Aunty Sex</a>
+						<a class="nav-link" href="{{ url_for('category_page', category_url='family_sex') }}">Family Sex</a>
+						<a class="nav-link" href="{{ url_for('category_page', category_url='group_sex') }}">Group Sex</a>
+						<a class="nav-link" href="{{ url_for('category_page', category_url='teen_sex') }}">Teen Sex</a>
+						<a class="nav-link" href="{{ url_for('category_page', category_url='couple_sex') }}">Couple Sex</a>
+						<a class="nav-link" href="{{ url_for('category_page', category_url='gay_sex') }}">Gay Sex</a>
+						<a class="nav-link" href="{{ url_for('category_page', category_url='lesbian_sex') }}">Lesbian Sex</a>
+						<a class="nav-link" href="{{ url_for('category_page', category_url='office_sex') }}">Office/ Maid/ Teacher Sex</a>
+						<a class="nav-link" href="{{ url_for('category_page', category_url='other_sex') }}">Other Sex</a>
+					</div>
+				  </li>
+				</ul>
+			</div>
+		</nav>
+		{% block body %}{% endblock %}
+		<div class="jumbotron jumbotron-fluid">
+			<div class="container">
+				<p class="lead">© 2021 Tamilkamakatha</p>
+			</div>
+		</div>
+	</body>
+</html>
