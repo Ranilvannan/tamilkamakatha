@@ -63,9 +63,7 @@ def home_page():
 @app.route('/category/<category_url>/')
 @app.route('/category/<category_url>')
 def category_page(category_url):
-    category_val = category_data.has_key(category_url)
-
-    if not category_val:
+    if category_url not in category_data.keys():
         return abort(404)
 
     category = category_data[category_url]
